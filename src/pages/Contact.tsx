@@ -1,26 +1,15 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import Navigation from '@/components/Navigation';
 
 const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
       <header className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-7xl mx-auto py-4 px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-400">Monoptica</h1>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Button variant="ghost" asChild className="dark:text-white">
-              <Link to="/" className="flex items-center gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Back
-              </Link>
-            </Button>
-          </div>
-        </div>
+        <Navigation />
       </header>
       
       <main className="max-w-4xl mx-auto px-4 py-12">

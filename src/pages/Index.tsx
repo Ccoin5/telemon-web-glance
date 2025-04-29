@@ -3,16 +3,13 @@ import React from 'react';
 import ProductSlider from '@/components/ProductSlider';
 import InfoBlock from '@/components/InfoBlock';
 import ContactButton from '@/components/ContactButton';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import Navigation from '@/components/Navigation';
 
 const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
       <header className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-7xl mx-auto py-4 px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-400">Monoptica</h1>
-          <ThemeToggle />
-        </div>
+        <Navigation />
       </header>
       
       <main>
