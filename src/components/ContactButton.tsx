@@ -12,12 +12,21 @@ const ContactButton: React.FC = () => {
         <p className="text-gray-600 mb-6">
           Our team is ready to help with any questions about our products, services, or scheduling an appointment.
         </p>
-        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg inline-flex items-center gap-2">
-          <Link to="/contact">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg inline-flex items-center gap-2">
+            <Link to="/contact">
+              <Phone className="w-5 h-5" />
+              <span>Contact Us</span>
+            </Link>
+          </Button>
+          <a 
+            href="viber://chat?number=+11234567890"
+            className="inline-flex items-center gap-2 bg-[#7360f2] hover:bg-[#5b4bc4] text-white py-2 px-6 rounded-lg transition-colors"
+          >
             <Phone className="w-5 h-5" />
-            <span>Contact Us</span>
-          </Link>
-        </Button>
+            <span>Viber</span>
+          </a>
+        </div>
       </div>
     </div>
   );
