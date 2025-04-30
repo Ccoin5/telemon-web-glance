@@ -1,9 +1,15 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, ArrowLeft } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Contact: React.FC = () => {
   return (
@@ -13,87 +19,93 @@ const Contact: React.FC = () => {
       </header>
       
       <main className="max-w-4xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center text-blue-800 dark:text-blue-400">Contact Us</h2>
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold text-blue-800 dark:text-blue-400">Contact Us</h2>
+          <Button variant="outline" asChild className="flex items-center gap-2 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-900">
+            <Link to="/">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </Button>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Accordion type="single" collapsible className="w-full">
           {/* Address Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900">
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-blue-700 dark:text-blue-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-400">Our Location</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Monoptica</p>
-                  <p className="text-gray-600 dark:text-gray-300">123 Eyewear Street, Fashion District</p>
-                  <p className="text-gray-600 dark:text-gray-300">New York, NY 10001</p>
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-700 dark:text-blue-400 hover:underline mt-2 inline-block"
-                  >
-                    View on Google Maps
-                  </a>
-                </div>
+          <AccordionItem value="address" className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900 mb-4">
+            <AccordionTrigger className="px-6 py-4 text-blue-800 dark:text-blue-400 hover:no-underline">
+              <div className="flex items-center gap-4">
+                <MapPin className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold">Our Location</h3>
               </div>
-            </div>
-          </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <div className="pl-10">
+                <p className="text-gray-600 dark:text-gray-300">Monoptica</p>
+                <p className="text-gray-600 dark:text-gray-300">123 Eyewear Street, Fashion District</p>
+                <p className="text-gray-600 dark:text-gray-300">New York, NY 10001</p>
+                <a 
+                  href="https://maps.google.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-700 dark:text-blue-400 hover:underline mt-2 inline-block"
+                >
+                  View on Google Maps
+                </a>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
           
           {/* Phone Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900">
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-blue-700 dark:text-blue-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-400">Phone</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Customer Service: (123) 456-7890</p>
-                  <p className="text-gray-600 dark:text-gray-300">Appointments: (123) 456-7891</p>
+          <AccordionItem value="phone" className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900 mb-4">
+            <AccordionTrigger className="px-6 py-4 text-blue-800 dark:text-blue-400 hover:no-underline">
+              <div className="flex items-center gap-4">
+                <Phone className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold">Phone Numbers</h3>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <div className="pl-10">
+                <p className="text-gray-600 dark:text-gray-300">Customer Service: (123) 456-7890</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-3">Appointments: (123) 456-7891</p>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
                   <a 
                     href="tel:+11234567890" 
-                    className="text-blue-700 dark:text-blue-400 hover:underline mt-2 inline-block"
+                    className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg transition-colors"
                   >
-                    Call Now
+                    <Phone className="w-5 h-5" />
+                    <span>Call Now</span>
                   </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Working Hours Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900">
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                <Clock className="w-6 h-6 text-blue-700 dark:text-blue-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-400">Business Hours</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Monday - Friday: 9:00 AM - 7:00 PM</p>
-                  <p className="text-gray-600 dark:text-gray-300">Saturday: 10:00 AM - 5:00 PM</p>
-                  <p className="text-gray-600 dark:text-gray-300">Sunday: Closed</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Viber Contact Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900">
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-blue-700 dark:text-blue-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-400">Contact via Viber</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Quick response on Viber: (123) 456-7890</p>
+                  
                   <a 
                     href="viber://chat?number=+11234567890" 
-                    className="mt-3 inline-flex items-center gap-2 bg-[#7360f2] text-white px-4 py-2 rounded-lg hover:bg-[#5b4bc4] transition-colors"
+                    className="inline-flex items-center justify-center gap-2 bg-[#7360f2] hover:bg-[#5b4bc4] text-white px-4 py-2 rounded-lg transition-colors"
                   >
                     <Phone className="w-5 h-5" />
                     <span>Contact via Viber</span>
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </AccordionContent>
+          </AccordionItem>
+          
+          {/* Working Hours Section */}
+          <AccordionItem value="hours" className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-blue-100 dark:border-blue-900">
+            <AccordionTrigger className="px-6 py-4 text-blue-800 dark:text-blue-400 hover:no-underline">
+              <div className="flex items-center gap-4">
+                <Clock className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold">Business Hours</h3>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <div className="pl-10">
+                <p className="text-gray-600 dark:text-gray-300">Monday - Friday: 9:00 AM - 7:00 PM</p>
+                <p className="text-gray-600 dark:text-gray-300">Saturday: 10:00 AM - 5:00 PM</p>
+                <p className="text-gray-600 dark:text-gray-300">Sunday: Closed</p>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
         
         <div className="mt-8">
           <div className="h-64 bg-gray-300 dark:bg-gray-700 rounded-xl overflow-hidden border border-blue-100 dark:border-blue-900">
