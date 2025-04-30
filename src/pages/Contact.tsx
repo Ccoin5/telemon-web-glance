@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
+import MobileNavigation from '@/components/MobileNavigation';
 import { 
   Accordion,
   AccordionContent,
@@ -13,7 +14,7 @@ import {
 
 const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors pb-16">
       <header className="bg-white dark:bg-gray-800 shadow-sm">
         <Navigation />
       </header>
@@ -125,6 +126,8 @@ const Contact: React.FC = () => {
           <p>© {new Date().getFullYear()} Monoptica. All rights reserved.</p>
         </div>
       </footer>
+      
+      <MobileNavigation />
     </div>
   );
 };

@@ -4,10 +4,11 @@ import ProductSlider from '@/components/ProductSlider';
 import InfoBlock from '@/components/InfoBlock';
 import ContactButton from '@/components/ContactButton';
 import Navigation from '@/components/Navigation';
+import MobileNavigation from '@/components/MobileNavigation';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors pb-16">
       <header className="bg-white dark:bg-gray-800 shadow-sm">
         <Navigation />
       </header>
@@ -34,6 +35,8 @@ const Index: React.FC = () => {
           <p>© {new Date().getFullYear()} Monoptica. All rights reserved.</p>
         </div>
       </footer>
+      
+      <MobileNavigation />
     </div>
   );
 };
