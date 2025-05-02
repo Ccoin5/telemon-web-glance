@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: "./", // Base path for GitHub Pages
+  base: "/telemon-web-glance/", // Updated base path for GitHub Pages repository name
   plugins: [
     react(),
     mode === 'development' &&
