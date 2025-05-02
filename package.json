@@ -79,12 +79,4 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  },
-{
-  "name": "telemon-web-glance",
-  "version": "1.0.0",
-  "homepage": "https://ccoin5.github.io/telemon-web-glance",
-  "private": true,
-  "dependencies": {
-    // your dependencies here
   }
